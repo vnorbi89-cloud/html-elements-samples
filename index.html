@@ -156,6 +156,275 @@ tr.drag-over {
 tr:active { cursor: grabbing; }
 
 
+
+
+hr {
+  border: none;
+  height: 4px;
+  background-color: #7646e5;
+}
+
+
+
+hr.light {
+  border-top: 1px solid #eee;
+}
+
+hr.bold {
+  border-top: 5px solid #fffb00;
+  border-bottom: 5px solid #ff0000;
+}
+
+.glass-card {
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+.fancy-btn {
+  padding: 12px 24px;
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 999px;
+  background: linear-gradient(270deg, #4f46e5, #9333ea, #ec4899);
+  background-size: 600%;
+  animation: gradientMove 4s ease infinite;
+  cursor: pointer;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% }
+  50% { background-position: 100% }
+  100% { background-position: 0% }
+}
+.hover-card {
+  padding: 20px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.hover-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+.divider {
+  display: flex;
+  align-items: center;
+  color: #aaa;
+  margin: 32px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+}
+
+.divider::before { margin-right: 12px; }
+.divider::after { margin-left: 12px; }
+
+.field {
+  position: relative;
+}
+
+.field input {
+  padding: 12px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.field label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+.field input:focus + label,
+.field input:valid + label {
+  top: -6px;
+  background: white;
+  padding: 0 6px;
+  font-size: 12px;
+  color: #4f46e5;
+}
+.neon-box {
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  background: #111;
+  box-shadow:
+    0 0 10px #4f46e5,
+    0 0 20px #4f46e5,
+    0 0 40px #4f46e5;
+}
+.skeleton {
+  height: 20px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    #eee 25%,
+    #f5f5f5 37%,
+    #eee 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% }
+  100% { background-position: 0% }
+}
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltip::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn-press {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  background: #4f46e5;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.btn-press:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.check {
+  width: 40px;
+  height: 40px;
+  background: #22c55e;
+  border-radius: 50%;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  animation: pop 1.3s ease-out;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.dots {
+  font-size: 20px;
+  letter-spacing: 4px;
+  animation: blink 1.4s infinite both;
+}
+
+@keyframes blink {
+  0% { opacity: .2 }
+  20% { opacity: 1 }
+  100% { opacity: .2 }
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #4f46e5;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #020617;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: system-ui;
+}
+
+/* Arena */
+.arena {
+  position: relative;
+  width: 500px;
+  height: 400px;
+  border-radius: 24px;
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(79,70,229,0.4);
+}
+
+/* Ball */
+.ball {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle at top left, #facc15, #eab308);
+  animation:
+    moveX 0.5s linear infinite alternate,
+    moveY 0.4s linear infinite alternate;
+}
+
+/* Horizontal movement */
+@keyframes moveX {
+  from { left: 0; }
+  to   { left: calc(100% - 30px); }
+}
+
+/* Vertical movement */
+@keyframes moveY {
+  from { top: 0; }
+  to   { top: calc(100% - 30px); }
+}
+
+
   </style>
 
 
@@ -216,19 +485,77 @@ tr:active { cursor: grabbing; }
       <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac dolor quis ligula bibendum rhoncus. Vivamus eleifend dui est, nec hendrerit dui elementum id. Suspendisse quis libero ac nulla tincidunt ullamcorper. Aenean vel leo in diam malesuada sollicitudin non sed eros. Vivamus eget tincidunt risus. Vestibulum sit amet imperdiet diam. Donec a mattis dolor, non placerat neque. Nullam ligula tellus, sodales ut consectetur vitae, lacinia ut sem. Donec commodo dolor in mauris dapibus, sit amet facilisis urna aliquam. Vestibulum aliquam sagittis feugiat. Nulla commodo lacus arcu, molestie aliquet risus fringilla vitae. Vivamus suscipit erat leo. Pellentesque egestas et urna eget vestibulum.
       </p>
-    <hr>  
+   <hr class="light"> 
 <details>
   <summary>More info</summary>
-  Hidden content
+    Hidden text
+
 </details>
-<hr>
+<hr class="bold">
 <blockquote>
   <p>Quoted text</p>
 </blockquote>
 
+</div>
+</div>
 
+
+<div class="glass-card">
+  <h3>Glass Card</h3>
+  <p>Fancy UI effect</p>
 </div>
+
+<button class="fancy-btn">Click Me</button>
+
+
+<div class="hover-card">Hover me</div>
+
+<div class="divider">OR</div>
+
+<div class="field">
+  <input required />
+  <label>Name</label>
 </div>
+
+<br>
+<div class="neon-box">Fancy Box</div>
+<br>
+
+<div class="skeleton"></div>
+
+<br>
+<span class="tooltip" data-tip="Hello!">Hover me</span>
+<br>
+
+<details>
+  <summary>More options</summary>
+  <p>Hidden content</p>
+</details>
+
+<br>
+<button class="btn-press">Save</button>
+<br>
+
+<div class="check">
+  ✓
+</div>
+<br>
+
+<div class="dots">● ● ●</div>
+<br>
+<div class="spinner"></div>
+<br>
+
+<container>
+<div class="arena">
+  <div class="ball"></div>
+</div>
+</container>
+<br>
+
+
+
+
   <script>
   const tableBody = document.getElementById("tableBody");
 tableBody.addEventListener("click", function (event) {
